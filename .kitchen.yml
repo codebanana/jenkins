@@ -1,0 +1,31 @@
+---
+driver:
+  name: ec2
+  aws_ssh_key_id: codebanana
+  security_group_ids: ["sg-4055ca38"]
+  region: us-east-1
+  subnet_id: subnet-77e48401
+  instance_type: t2.medium
+
+provisioner:
+  name: chef_zero
+
+# Uncomment the following verifier to leverage Inspec instead of Busser (the
+# default verifier)
+# verifier:
+#   name: inspec
+
+transport:
+  ssh_key: ~/.ssh/codebanana.pem
+  username: ec2-user
+
+platforms:
+  - name: amazon-linux-2016
+    driver:
+      image_id: ami-08111162
+
+suites:
+  - name: default
+    run_list:
+      - recipe[jenkins::default]
+    attributes:
