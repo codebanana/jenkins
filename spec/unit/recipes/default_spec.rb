@@ -18,3 +18,7 @@ describe 'jenkins-server::default' do
     end
   end
 end
+
+# jenkins is running
+# pluggins are installed
+# authentication is setup
