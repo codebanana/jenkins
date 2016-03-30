@@ -2,9 +2,9 @@
 driver:
   name: ec2
   aws_ssh_key_id: codebanana
-  security_group_ids: ["sg-4055ca38"]
+  security_group_ids: ["sg-ad1d5cd5"]
   region: us-east-1
-  subnet_id: subnet-77e48401
+  subnet_id: subnet-37205441
   instance_type: t2.medium
 
 provisioner:
@@ -27,5 +27,5 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[jenkins::default]
+      - recipe[jenkins-server::default]
     attributes:
